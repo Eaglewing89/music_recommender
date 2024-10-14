@@ -3,7 +3,7 @@ import numpy as np
 import streamlit as st
 from utils import capitalize_words
 
-st.set_page_config(page_title="Recommendations", layout="wide")
+st.set_page_config(page_title="Recommendations")
 
 
 # Load the data
@@ -15,8 +15,10 @@ def load_data(filename):
 
 df = load_data('./data/spotify_dataset_kaggle.csv')
 df = df[["name", "artists", "release_date"]]
-df_num = load_data("./data/spotify_numerical.csv")
+df_num = load_data("./data/spotify_numerical_2.csv")
 df_num = df_num.set_index("name")
+
+df_num['year'] = df_num['year'] * 10
 
 st.title("Music recommendations")
 st.write('Find similar songs based on your preference')
