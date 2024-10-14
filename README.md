@@ -17,3 +17,11 @@ splita upp arbetet eller inte, beror på moment och arbete. prova oss fram
 vi får använda hur mycket ai vi vill (chatgpt etc)
 tobbe går runt och kollar och tar närvaro senare.
 vi avslutar senast 17:30, lokalen stänger då
+
+
+
+
+notes:
+
+if search is not in df
+remind user to check box in selection

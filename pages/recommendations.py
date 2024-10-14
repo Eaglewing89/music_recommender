@@ -31,16 +31,20 @@ m2 = df["name"].str.contains(song_search)
 df_search = df[m1 | m2]
 
 if song_search:
-    selected_row = st.dataframe(
-        df_search, selection_mode="single-row", on_select="rerun")
+    if df_search.empty:
+        st.write('No such song or artist')
+    else:
+        selected_row = st.dataframe(
+            df_search, selection_mode="single-row", on_select="rerun")
+        st.write('Please select a box to the left of the title')
 
-    try:
-        select_index = selected_row.selection["rows"]
+        try:
+            select_index = selected_row.selection["rows"]
 
-        select_index = select_index[0]
-        row = df_search.iloc[select_index]
-    except IndexError:
-        pass
+            select_index = select_index[0]
+            row = df_search.iloc[select_index]
+        except IndexError:
+            pass
 
 try:
     song_name = row["name"]
