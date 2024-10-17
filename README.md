@@ -1,27 +1,9 @@
 # music_recommender
 Streamlit app that recommends songs from a spotify dataset
 
+Hackaton 14/11 2024
 
-
-
-mini hackaton idag, finns många ai hackaton i stockholm
-hackaton är intensivt
-
-
-regler:
-
-brukar vara ett specifikt tema, men inte idag.
-idag är det fritt att bygga vad man vill.
-vs code live share eller samarbete över git.
-splita upp arbetet eller inte, beror på moment och arbete. prova oss fram
-vi får använda hur mycket ai vi vill (chatgpt etc)
-tobbe går runt och kollar och tar närvaro senare.
-vi avslutar senast 17:30, lokalen stänger då
-
-
-
-
-notes:
-
-if search is not in df
-remind user to check box in selection
+A music recommendation app that recommends songs based on a song selected by the user. 
+This is achived by using linear algebra in data_wrangler.ipynb. 
+Due to the massive size of the matrix that got created when using the full dataset, we considerably trimmed it down to the 
+songs that are deemed most popular. Going from an estimated 30gb to 172mb csv file.

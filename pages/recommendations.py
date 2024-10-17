@@ -23,7 +23,7 @@ df_num['year'] = df_num['year'] * 10
 st.title("Music recommendations")
 st.write('Find similar songs based on your preference')
 
-song_search = st.text_input("Search song by title or speaker",
+song_search = st.text_input("Search",
                             value="", placeholder='Enter artist or song name...')
 song_search = capitalize_words(song_search)
 
@@ -37,8 +37,8 @@ if song_search:
         st.write('No such song or artist')
     else:
         selected_row = st.dataframe(
-            df_search, selection_mode="single-row", on_select="rerun")
-        st.write('Please select a box to the left of the title')
+            df_search, selection_mode="single-row", on_select="rerun", hide_index=True)
+        st.write('Please select a box to the left of the title and you will be recommended 5 songs')
 
         try:
             select_index = selected_row.selection["rows"]
@@ -54,7 +54,7 @@ try:
     distances = np.linalg.norm(df_num-song, axis=1)
     recommendations = 5
     indexes = np.argpartition(distances, recommendations)
-    st.write(df.iloc[indexes[:recommendations]])
+    st.dataframe(df.iloc[indexes[:recommendations]], hide_index=True)
 except IndexError:
     st.write("Select a song by checking the box to the left of the song")
 except ValueError:
